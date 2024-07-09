@@ -7,3 +7,5 @@ This repository is organized as follows:
 - `Neural_Network_Analysis.md` contains a summary report of the approach and findings
 
 All code is my own, but XPert Learning Assistant was used to quickly lookup syntax.
+
+In a tutoring session, fellow student Karuna Kesavan Kothandath mentioned that pulling name back into the dataset and using that as an additional dimension can bring up the accuracy since the name is not actually a unique identifier.  I included this knowledge in my summary analysis.

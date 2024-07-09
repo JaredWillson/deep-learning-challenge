@@ -71,6 +71,6 @@ An improvement of approximately 1.5% was reached vs. the baseline result prior t
 It is possible that additional manipulation of parameters would reach the target, but I did not see a clear path to achieving the goal. In order to achieve a better result I would recommend one or more of the following:
 
 - Incorporate additional data, either additional features or results from outside Alphabet Soup
-- Perform additional data cleansing on the existing data to see if there are outlier initiatives that should be removed from the training dataset. 
+- Per instructions, `Name` was deleted from the initial data frame. However, it is not actually a unique identifier and might recur in future projects since organizations might submit for funding on multiple occasions. A company's track record might be a useful indicator of future success, so pulling name back into the dataset might improve accuracy.
 
 
