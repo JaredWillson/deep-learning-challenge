@@ -24,10 +24,13 @@ There were two additional columns that acted as record identifiers rather than e
 - EIN
 - NAME
 
+However, it turns out that the `NAME` field is far from unique, and is, in fact, an indicator of future success. As a result, the `NAME` field was pulled back in during optimization in order to improve accuracy.
+
 In order to avoid overfitting and allowing rare outliers to significantly impact the results, unusual values in certain categorical columns were combined into an "Other" value in order to minimize the chances of their skewing results.
 
 - APPLICATION_TYPE
 - CLASSIFICATION
+- NAME
 
 Here is a screenshot of the resulting valid Application Types:
 
@@ -55,7 +58,7 @@ For the output layer, a single neuron was used since this is generally effective
 
 Several different activation functions were tried including RELU, Sigmoid, TANH, and Softmax. The best results were with Softmax for the two hidden layers, and Sigmoid for the single output layer. 
 
-The target accuracy identified for the model was 75%. That level of accuracy was not achieved despite multiple efforts to optimize the model. The best result was approximately 73.3% accuracy. In an effort to reach 75%, the following adjustments were tried:
+The target accuracy identified for the model was 75%. That level of accuracy was only achieved by bringing back `NAME` into the dataset as a feature. The best result was approximately 75.6% accuracy. In an effort to reach 75%, the following adjustments were tried:
 
 - Removal of the `Status` column since it was overwhelmingly populated with a single value
 - Removal of the `Special_Considerations` column which was likewise dominated by a single value
@@ -63,14 +66,15 @@ The target accuracy identified for the model was 75%. That level of accuracy was
 - Addition of more hidden layers
 - Adjustments to the number of neurons in each layer
 - Modifications to the activation method
+- Reincorporation of `NAME`
 
 ## Summary
 
-An improvement of approximately 1.5% was reached vs. the baseline result prior to optimization. At 73.3%, the optimized result still fell short of the target of 75%. 
+An improvement of approximately 3% was reached vs. the baseline result prior to optimization. At 75.6%, the optimized result exceeded the target of 75%. 
 
-It is possible that additional manipulation of parameters would reach the target, but I did not see a clear path to achieving the goal. In order to achieve a better result I would recommend one or more of the following:
+It is possible that additional manipulation of parameters would improve things farther, but I did not see a clear path to achieving much higher accuracy. In order to achieve a better result I would recommend one or more of the following:
 
 - Incorporate additional data, either additional features or results from outside Alphabet Soup
-- Per instructions, `Name` was deleted from the initial data frame. However, it is not actually a unique identifier and might recur in future projects since organizations might submit for funding on multiple occasions. A company's track record might be a useful indicator of future success, so pulling name back into the dataset might improve accuracy.
+- Per instructions, `Name` was deleted from the initial data frame. However, it needed to be re-incorporated into the features in order to achieve the requisite accuracy.
 
 
